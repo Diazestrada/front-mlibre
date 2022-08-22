@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {    
+    "baseUrl": "src",
+    "paths": {      
+      "assets": ["assets"],
+      "assets/*": ["assets/*"],
+      "components": ["components"],
+      "components/*": ["components/*"],
+      "routes": ["routes"],
+      "routes/*": ["routes/*"],
+      "screens": ["screens"],
+      "screens/*": ["screens/*"],
+      "services": ["services"],
+      "services/*": ["services/*"],
+      "types": ["types"],
+      "types/*": ["types/*"],
+      "utils": ["utils"],
+      "utils/*": ["utils/*"]      
+    }    
+  }
+}
