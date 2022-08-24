@@ -8,6 +8,8 @@ import Contain from "components/Contain";
 import CardProducts from "components/Cards/CardProducts";
 import Breadcrumb from "components/Breadcrumb";
 
+import { setItem } from "store";
+
 import { getProductsSearch } from "helpers/product";
 
 const SearchResultScreen = () => {
@@ -18,7 +20,7 @@ const SearchResultScreen = () => {
     if (query !== "") {
       getProducts();
     }
-  }, []);
+  });
 
   const useQuery = () => {
     const { search } = useLocation();
@@ -30,7 +32,7 @@ const SearchResultScreen = () => {
   const getProducts = async () => {
     try {
       const data = await getProductsSearch(query);
-      console.log(data)
+      setItem("categories", JSON.stringify(data["categories"]));
       setProduct(data);
     } catch (error) {
       console.error(error);
@@ -44,7 +46,7 @@ const SearchResultScreen = () => {
   return (
     <div>
       <SideBar />
-      <Breadcrumb items={product} />
+      <Breadcrumb />
       <Contain>
         <CardProducts
           data={product}
