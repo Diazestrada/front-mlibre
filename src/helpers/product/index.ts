@@ -1,6 +1,6 @@
 import { request } from "../../utils/http";
 
-export const getProductsSearch = async (query: string) => {
+export const getProductsSearch = async (query: any) => {
   const response = await request("GET", `/api/items?q=${query}`);
   return response.data;
 };

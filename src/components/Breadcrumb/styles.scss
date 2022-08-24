@@ -1,5 +1,8 @@
 @import "../../base";
-#containcenter{
-  color: $GRAY_COLOR_PRIMARY;
 
+#containcenter {
+  color: $GRAY_COLOR_PRIMARY;
+  position: absolute;
+  left: 16%;
+  width: 50%;
 }

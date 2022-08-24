@@ -1,16 +1,22 @@
-import React from "react";
+import React, { useState, useMemo } from "react";
+import {
+  BrowserRouter as Router,
+  useLocation,
+  useNavigate,
+} from "react-router-dom";
 
 import "./styles.scss";
 
 import Logo from "../../assets/Logo.png";
 import Search from "../../assets/ic_Search.png";
 
-interface IguiSideBar {
-  onChange(event: string): void;
-  onClick?(): void;
-}
+const SideBar = () => {
+  const [search, setSearch] = useState("");
+  const navigate = useNavigate();
 
-const SideBar: React.FC<IguiSideBar> = (props: IguiSideBar) => {
+  const goToProduct = () => {
+    navigate(`/items?search=${search}`);
+  };
 
   return (
     <nav className="navbar navbar-expand-lg" id="backgraundNav">
@@ -23,13 +29,14 @@ const SideBar: React.FC<IguiSideBar> = (props: IguiSideBar) => {
           <input
             className="form-control"
             placeholder="Nunca dejes de buscar"
-            onChange={(event) => props.onChange(event.target.value)}
+            value={search}
+            onChange={({ target }) => setSearch(target.value)}
           />
           <button
             className="btn "
             type="button"
             id="buttonSearch"
-             onClick={props.onClick}
+            onClick={goToProduct}
           >
             <img src={Search} alt="search" className="img-fluid" />
           </button>
